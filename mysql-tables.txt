@@ -1,0 +1,21 @@
+CREATE TABLE users(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    pwd VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)  
+); 
+
+
+CREATE TABLE posts (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    author_id INT(11) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    post_text LONGTEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+SELECT * FROM posts JOIN users ON posts.author_id = users.id ORDER BY posts.id DESC;

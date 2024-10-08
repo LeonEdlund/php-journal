@@ -1,0 +1,106 @@
+:root {
+  --red-primary: #D24317;
+  --red-btn-hover: hsl(14, 80%, 60%);
+}
+
+
+/* DEFULT STYLES */
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-height {
+  flex-grow: 1;
+}
+
+footer p {
+  margin-bottom: 0;
+  font-size: medium;
+}
+
+
+/* NAVBAR */
+#logo {
+  color: var(--pico-h1-color);
+}
+
+#logo:hover {
+  text-decoration: none;
+}
+
+header hr {
+  margin: 0;
+}
+
+#log-out-btn {
+  background-color: var(--red-primary);
+  border-color: var(--red-primary);
+}
+
+#log-out-btn:hover {
+  background-color: var(--red-btn-hover);
+  border-color: var(--red-btn-hover);
+}
+
+button:focus {
+  --pico-box-shadow: none;
+}
+
+
+/* LOG IN PAGE */
+#login-body {
+  margin: auto;
+  max-width: 800px;
+}
+
+#login-error {
+  color: var(--red-primary);
+}
+
+
+/* DASHBOARD */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  padding-top: 2rem;
+}
+
+#post-btn {
+  width: min-content;
+}
+
+
+/* INDEX PAGE */
+#post-list,
+#post-list li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#post-list a {
+  color: var(--pico-h3-color);
+  text-decoration: none;
+}
+
+.card-footer-text {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.float-right {
+  float: right;
+}
+
+/* 404 PAGE */
+
+.no-page {
+  padding-top: 2rem;
+}
