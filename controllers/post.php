@@ -14,15 +14,23 @@ if (!is_numeric($postId)) {
 $postConnection = new Post();
 $post = $postConnection->getPost($postId);
 $comments = $postConnection->getComments($postId);
-$postsConnection = null;
+
 if (!$post) {
   abort('notFound');
 }
 
-if (!$comments) {
-  $comments = [];
+// post comment
+if (request_method_is_post()) {
+  if ($postConnection->publishComment($postId, $_POST['name'], $_POST['comment'])) {
+    // Redirect to the same page to force a GET request
+    header("Location: index.php?route=post&id=$postId");
+    die();
+  } else {
+    $errorMessage = 'Fill in all fields';
+  }
 }
-//dd($comments);
+
+$postsConnection = null;
 
 /* SHOW PAGE */
 $title = htmlspecialchars($post['title']);

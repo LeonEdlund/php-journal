@@ -8,6 +8,7 @@
     <?php require('partials/navbar.php') ?>
 
     <main>
+      <a href="index.php">Go back</a>
       <hgroup>
         <h1><?= htmlspecialchars($post['title']) ?></h1>
         <h3><?= htmlspecialchars($post['created_at']) ?></h3>
@@ -30,6 +31,12 @@
           <textarea type="" id="comment" name="comment" placeholder="Comment"></textarea>
           <input type="submit" value="Post" id="post-btn" />
         </form>
+
+        <?php if (isset($errorMessage)) : ?>
+          <section>
+            <p><?= $errorMessage ?></p>
+          </section>
+        <?php endif; ?>
 
         <ul id="post-list">
           <?php foreach ($comments as $comment) : ?>

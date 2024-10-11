@@ -26,9 +26,9 @@ class Posts extends Database
     return $this->query($query)->fetchAll();
   }
 
-  public function getPost($id)
-  {
-    $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id=?';
-    return $this->query($query, [$id])->fetch();
-  }
+  // public function getPost($id)
+  // {
+  //   $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id=?';
+  //   return $this->query($query, [$id])->fetch();
+  // }
 }

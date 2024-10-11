@@ -20,6 +20,18 @@ class Post extends Database
     }
   }
 
+  public function publishComment($post_id, $author, $comment_text)
+  {
+    if (strlen($author) > 0 && strlen($comment_text) > 0) {
+      $query = 'INSERT INTO comments(post_id, author, comment_text) VALUES (?, ?, ?)';
+      $this->query($query, [$post_id, $author, $comment_text]);
+
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  }
+
   public function getPost($id)
   {
     $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id=?';
@@ -28,7 +40,7 @@ class Post extends Database
 
   public function getComments($id)
   {
-    $query = 'SELECT * FROM comments WHERE comment_id=?';
+    $query = 'SELECT * FROM comments WHERE post_id=? ORDER BY comment_id DESC';
     return $this->query($query, [$id])->fetchAll();
   }
 }
