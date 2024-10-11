@@ -11,13 +11,18 @@ if (!is_numeric($postId)) {
   abort('notFound');
 }
 
-$postsConnection = new Posts();
-$post = $postsConnection->getPost($postId);
+$postConnection = new Post();
+$post = $postConnection->getPost($postId);
+$comments = $postConnection->getComments($postId);
 $postsConnection = null;
-
 if (!$post) {
   abort('notFound');
 }
+
+if (!$comments) {
+  $comments = [];
+}
+//dd($comments);
 
 /* SHOW PAGE */
 $title = htmlspecialchars($post['title']);

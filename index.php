@@ -5,4 +5,5 @@ require_once 'functions.php'; // load global functions
 require_once 'models/Database.php'; // load Databass class
 require_once 'models/Authenticator.php'; // load Authenticator class
 require_once 'models/Posts.php'; // load Authenticator class
+require_once 'models/Post.php'; // load Authenticator class
 require_once 'router.php'; // load router

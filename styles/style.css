@@ -99,6 +99,21 @@ button:focus {
   float: right;
 }
 
+.pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.pagination a {
+  text-decoration: none;
+
+}
+
+.pagination #active {
+  text-decoration: underline;
+}
+
 /* 404 PAGE */
 
 .no-page {
