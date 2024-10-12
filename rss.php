@@ -14,13 +14,15 @@ echo "<?xml version='1.0' encoding='UTF-8'?>"
 
 <rss version="2.0">
   <channel>
-    <title>Journal - RSS Feed</title>
-
+    <title>Journal</title>
+    <link>https://www.melab.lnu.se/~le223nd/webbteknik-4/journal/</link>
+    <description>A rss feed of the posts from a journal webbsite.</description>
     <?php foreach ($posts as $post) : ?>
-      <post>
+      <item>
         <title><?= $post['title'] ?></title>
         <author><?= $post['first_name'] . " " .  $post['first_name'] ?></author>
         <created><?= $post['created_at'] ?></created>
+        <link>https://www.melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post['id'] ?></link>
         <text><?= $post['post_text'] ?></text>
-      </post>
+      </item>
     <?php endforeach ?>
