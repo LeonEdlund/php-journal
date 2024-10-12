@@ -20,15 +20,9 @@ class Posts extends Database
     }
   }
 
-  public function getAllPosts()
+  public function getAllPosts($limit = "")
   {
-    $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON users.id = posts.author_id ORDER BY posts.id DESC';
+    $query = "SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON users.id = posts .author_id ORDER BY posts.id DESC $limit";
     return $this->query($query)->fetchAll();
   }
-
-  // public function getPost($id)
-  // {
-  //   $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id=?';
-  //   return $this->query($query, [$id])->fetch();
-  // }
 }

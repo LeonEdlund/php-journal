@@ -99,19 +99,11 @@ button:focus {
   float: right;
 }
 
-.pagination {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
+/* post */
 
-.pagination a {
-  text-decoration: none;
-
-}
-
-.pagination #active {
-  text-decoration: underline;
+#go-back {
+  display: block;
+  padding: 1rem 0;
 }
 
 /* 404 PAGE */
