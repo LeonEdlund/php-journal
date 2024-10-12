@@ -19,10 +19,20 @@ echo "<?xml version='1.0' encoding='UTF-8'?>"
     <description>A rss feed of the posts from a journal webbsite.</description>
     <?php foreach ($posts as $post) : ?>
       <item>
-        <title><?= $post['title'] ?></title>
-        <author><?= $post['first_name'] . " " .  $post['first_name'] ?></author>
-        <created><?= $post['created_at'] ?></created>
-        <link>https://www.melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post['id'] ?></link>
-        <text><?= $post['post_text'] ?></text>
+        <title>
+          <![CDATA[ <?= $post['title'] ?> ]]>
+        </title>
+        <author>
+          <![CDATA[<?= $post['first_name'] . " " .  $post['last_name'] ?>]]>
+        </author>
+        <pubDate>
+          <![CDATA[<?= $post['created_at'] ?>]]>
+        </pubDate>
+        <link>
+        <![CDATA[https://www.melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&id=<?= $post['id'] ?>]]>
+        </link>
+        <description>
+          <![CDATA[<?= $post['post_text'] ?>]]>
+        </description>
       </item>
     <?php endforeach ?>
