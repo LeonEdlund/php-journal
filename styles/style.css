@@ -25,6 +25,10 @@ footer p {
   font-size: medium;
 }
 
+.hidden {
+  display: none;
+}
+
 
 /* NAVBAR */
 #logo {
