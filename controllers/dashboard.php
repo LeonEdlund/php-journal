@@ -5,7 +5,7 @@ if (!user_is_logged_in()) {
 }
 
 if (request_method_is_post()) {
-  $post = new Posts();
+  $post = new Post();
   $postStatus = $post->publishPost($_POST['title'], $_POST['post_text']);
   $post = null;
 }

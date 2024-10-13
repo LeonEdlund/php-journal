@@ -10,8 +10,8 @@
       <aside>
         <nav>
           <ul>
-            <li><a href="#">New post</a></li>
-            <li><a href="#">All posts</a></li>
+            <li><a href="index.php?route=dashboard">New post</a></li>
+            <li><a href="index.php?route=dashboard-myposts">All posts</a></li>
           </ul>
         </nav>
       </aside>
