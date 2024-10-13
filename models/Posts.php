@@ -10,8 +10,9 @@ class Posts extends Database
 
   public function getNumberOfPosts()
   {
-    $query = "SELECT * FROM posts";
-    return $this->query($query)->rowCount();
+    $query = "SELECT count(*) AS total FROM posts";
+    $result = $this->query($query)->fetch();
+    return $result['total'];
   }
 
   public function getAllPosts($limit = "")
