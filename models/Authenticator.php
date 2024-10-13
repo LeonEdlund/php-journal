@@ -1,15 +1,13 @@
 <?php
 
 /**
- * User class
+ * Authenticator class
  * 
- * Handles user authentication
+ * Handles user authentication based on users credentials in the database
+ * and saves authenticated user in session.
  */
 class Authenticator extends Database
 {
-  /**
-   * Creates a new connection to database and saves provided username and password
-   */
   public function __construct()
   {
     parent::__construct();
@@ -35,6 +33,11 @@ class Authenticator extends Database
     }
   }
 
+  /** 
+   * Saves the user in SESSION
+   * 
+   * @return void
+   */
   private function saveUserSession($user)
   {
     $_SESSION['user'] = [

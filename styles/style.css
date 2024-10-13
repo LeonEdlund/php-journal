@@ -99,6 +99,20 @@ button:focus {
   float: right;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination #active {
+  text-decoration: underline;
+}
+
 /* post */
 
 #go-back {

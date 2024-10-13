@@ -20,6 +20,12 @@ class Posts extends Database
     }
   }
 
+  public function getNumberOfPosts()
+  {
+    $query = "SELECT * FROM posts";
+    return $this->query($query)->rowCount();
+  }
+
   public function getAllPosts($limit = "")
   {
     $query = "SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON users.id = posts .author_id ORDER BY posts.id DESC $limit";

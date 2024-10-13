@@ -33,6 +33,11 @@
             <?php endforeach; ?>
           <?php endif; ?>
         </ul>
+        <div class="pagination">
+          <?php for ($i = 1; $i <= $numberOfPages; $i++) : ?>
+            <a href="index.php?route=posts&page=<?= $i ?>" <?= ($page == $i) ? "id=active" : "" ?>><?= $i ?></a>
+          <?php endfor; ?>
+        </div>
       </section>
     </main>
 
