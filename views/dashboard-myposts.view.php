@@ -24,9 +24,13 @@
           <?php foreach ($posts as $post) : ?>
             <li>
               <article>
-                <?= htmlspecialchars($post['title']) ?>
-                <footer class="card-footer-text">
+                <header>
+                  <strong><?= htmlspecialchars($post['title']) ?></strong>
                   <p class="float-right"><?= htmlspecialchars($post['created_at']) ?></p>
+                </header>
+                <?= nl2br(htmlspecialchars($post['post_text'])) ?>
+                <footer class="card-footer-text">
+
                   <form action="" method="post">
                     <input class="hidden" type="number" name="post_id" value="<?= $post['id'] ?>">
                     <input type="submit" value="Delete" id="post-btn">
