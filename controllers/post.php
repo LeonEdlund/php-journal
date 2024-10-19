@@ -22,7 +22,6 @@ if (!$post) {
 // post comment
 if (request_method_is_post()) {
   if ($postConnection->publishComment($postId, $_POST['name'], $_POST['comment'])) {
-    // Redirect to the same page to force a GET request
     header("Location: index.php?route=post&id=$postId");
     die();
   } else {
