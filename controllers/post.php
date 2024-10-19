@@ -1,14 +1,9 @@
 <?php
+$postId = @$_GET['id'];
 
-$postId = $_GET['id'];
-
-if (!isset($postId)) {
+if (!$postId || !is_numeric($postId)) {
   header('location: index.php?route=posts');
   die();
-}
-
-if (!is_numeric($postId)) {
-  abort('notFound');
 }
 
 $postConnection = new Post();

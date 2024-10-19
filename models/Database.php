@@ -21,8 +21,13 @@ class Database
     $config = require 'config/config.php';
 
     try {
-      //$dsn = "mysql:host=" . $config['host'] . ";dbname=" . $config['dbName'];
-      $this->connection = new PDO("mysql:host=" . $config['host'] . ";dbname=" . $config['dbName'], $config['dbUsername'], $config['dbPwd'], [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+      $dsn = "mysql:host={$config['host']};dbname={$config['dbName']}";
+      $this->connection = new PDO(
+        $dsn,
+        $config['dbUsername'],
+        $config['dbPwd'],
+        [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+      );
     } catch (PDOException $e) {
       abort('dbError');
     }

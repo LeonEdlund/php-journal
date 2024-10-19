@@ -52,6 +52,12 @@ class Post extends Database
     $this->query($query, [$postId]);
   }
 
+  public function editPost($id, $title, $content)
+  {
+    $query = "UPDATE posts SET title = ?, post_text = ? WHERE id = ?";
+    $this->query($query, [$title, $content, $id]);
+  }
+
 
   /**
    * Publishes a new comment to 'comments' table.

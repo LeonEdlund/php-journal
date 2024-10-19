@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <?php require('partials/head.php') ?>
 
 <body class="container">

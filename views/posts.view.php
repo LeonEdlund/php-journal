@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <?php require('partials/head.php') ?>
 
 <body class="container">
@@ -40,9 +37,6 @@
         </div>
       </section>
     </main>
-
   </div>
   <?php require('partials/footer.php') ?>
 </body>
-
-</html>

@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <?php require('partials/head.php') ?>
 
 <body class="container">
@@ -10,8 +7,8 @@
       <aside>
         <nav>
           <ul>
-            <li><a href="index.php?route=dashboard">New post</a></li>
-            <li><a href="index.php?route=dashboard-myposts">All posts</a></li>
+            <li><a href="?route=dashboard">New post</a></li>
+            <li><a href="?route=my-posts" id="active-link">Your posts</a></li>
           </ul>
         </nav>
       </aside>
@@ -31,10 +28,14 @@
                 <?= nl2br(htmlspecialchars($post['post_text'])) ?>
                 <footer class="card-footer-text">
 
-                  <form action="" method="post">
-                    <input class="hidden" type="number" name="post_id" value="<?= $post['id'] ?>">
-                    <input type="submit" value="Delete" id="post-btn">
-                  </form>
+                  <div class="flex">
+                    <button onclick="window.location = 'index.php?route=edit-post&id=<?= $post['id'] ?>'">Edit</button>
+                    <form action="" method="post">
+                      <input class="hidden" type="number" name="post_id" value="<?= $post['id'] ?>">
+                      <input type="submit" value="Delete" id="post-btn">
+                    </form>
+
+                  </div>
                 </footer>
               </article>
             </li>
@@ -44,7 +45,6 @@
       </main>
     </div>
   </div>
+
   <?php require('partials/footer.php') ?>
 </body>
-
-</html>

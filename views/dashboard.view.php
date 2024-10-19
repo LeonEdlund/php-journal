@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <?php require('partials/head.php') ?>
 
 <body class="container">
@@ -10,8 +7,8 @@
       <aside>
         <nav>
           <ul>
-            <li><a href="index.php?route=dashboard">New post</a></li>
-            <li><a href="index.php?route=dashboard-myposts">All posts</a></li>
+            <li><a href="index.php?route=dashboard" id="active-link">New post</a></li>
+            <li><a href="index.php?route=my-posts">Your posts</a></li>
           </ul>
         </nav>
       </aside>
@@ -39,7 +36,6 @@
       </main>
     </div>
   </div>
+
   <?php require('partials/footer.php') ?>
 </body>
-
-</html>

@@ -29,6 +29,22 @@ footer p {
   display: none;
 }
 
+.flex {
+  display: flex;
+  gap: 20px;
+}
+
+.flex #post-btn {
+  margin: 0;
+  background-color: var(--red-primary);
+  border-color: var(--red-primary);
+}
+
+.flex #post-btn:hover {
+  background-color: var(--red-btn-hover);
+  border-color: var(--red-primary);
+}
+
 
 /* NAVBAR */
 #logo {
@@ -78,6 +94,10 @@ button:focus {
 
 #post-btn {
   width: min-content;
+}
+
+#active-link {
+  text-decoration: underline;
 }
 
 
