@@ -16,7 +16,7 @@
             </ul>
           </details>
         <?php else: ?>
-          <button onclick="window.location = 'index.php?route=login'">LOG IN</button>
+          <a href="index.php?route=login" class="btn-green">Sign In</a>
         <?php endif ?>
       </li>
     </ul>
