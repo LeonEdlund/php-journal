@@ -1,4 +1,4 @@
-<?php require('partials/head.php') ?>
+<?php require('views/partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">

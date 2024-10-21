@@ -1,4 +1,6 @@
 <?php
+require_once 'models/Authenticator.php';
+
 if (user_is_logged_in()) {
   header('location: index.php?route=posts');
 }

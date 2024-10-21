@@ -34,7 +34,7 @@ class Authenticator extends Database
   }
 
   /** 
-   * Saves the user in SESSION
+   * Saves the user in SESSION 
    * 
    * @return void
    */
@@ -43,7 +43,7 @@ class Authenticator extends Database
     $_SESSION['user'] = [
       'id' => $user['id'],
       'username' => $user['username'],
-      'fullname' => ($user['first_name'] . $user['last_name'])
+      'fullName' => ($user['first_name'] . " " . $user['last_name'])
     ];
   }
 }

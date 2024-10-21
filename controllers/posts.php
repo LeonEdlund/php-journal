@@ -1,11 +1,11 @@
 <?php
 
 // connect to database
-$postsConnection = new Posts();
+$postManager = new PostManager();
 
 // set up pagination
 $resultsPerPage = 10;
-$numberOfPosts = $postsConnection->getNumberOfPosts();
+$numberOfPosts = $postManager->getNumberOfPosts();
 $numberOfPages = ceil($numberOfPosts / $resultsPerPage);
 
 // get chosen page
@@ -20,8 +20,7 @@ if (!isset($_GET['page'])) {
 $startingPost = ($page - 1) * $resultsPerPage;
 
 // get all posts
-$posts = $postsConnection->getAllPosts("LIMIT $startingPost , $resultsPerPage");
-$postsConnection = null; // close connection
+$posts = $postManager->getAllPosts("LIMIT $startingPost , $resultsPerPage");
 
 /* SHOW PAGE */
 $title = "Posts";

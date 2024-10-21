@@ -1,8 +1,8 @@
-<?php require('partials/head.php') ?>
+<?php require('views/partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">
-    <?php require('partials/admin-navbar.php') ?>
+    <?php require('views/partials/admin-navbar.php') ?>
     <main>
       <a href="?route=my-posts">Back</a>
       <hgroup>
@@ -27,5 +27,5 @@
     </main>
   </div>
 
-  <?php require('partials/footer.php') ?>
+  <?php require('views/partials/footer.php') ?>
 </body>

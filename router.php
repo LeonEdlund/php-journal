@@ -6,9 +6,9 @@ $routs = [
   'posts' => 'controllers/posts.php',
   'post' => 'controllers/post.php',
   'login' => 'controllers/login.php',
-  'dashboard' => 'controllers/dashboard.php',
-  'my-posts' => 'controllers/dashboard-myposts.php',
-  'edit-post' => 'controllers/dashboard-edit-post.php',
+  'dashboard' => 'controllers/dashboard/dashboard.php',
+  'my-posts' => 'controllers/dashboard/my-posts.php',
+  'edit-post' => 'controllers/dashboard/edit-post.php',
   'logout' => 'controllers/logout.php',
 ];
 

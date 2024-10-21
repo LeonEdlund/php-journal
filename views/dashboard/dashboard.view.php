@@ -1,8 +1,8 @@
-<?php require('partials/head.php') ?>
+<?php require('views/partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">
-    <?php require('partials/admin-navbar.php') ?>
+    <?php require('views/partials/admin-navbar.php') ?>
     <div class=" main-grid">
       <aside>
         <nav>
@@ -28,14 +28,24 @@
           <input type="submit" value="Post" id="post-btn" />
         </form>
 
+        <!-- DISPLAY ERRORS -->
+        <?php if (!empty($errors)) : ?>
+          <section>
+            <?php foreach ($errors as $error) : ?>
+              <p><?= $error ?></p>
+            <?php endforeach; ?>
+          </section>
+        <?php endif ?>
+
+        <!-- DISPLAY POSTSTATUS -->
         <?php if (isset($postStatus)) : ?>
           <section>
             <p><?= $postStatus ?></p>
           </section>
-        <?php endif; ?>
+        <?php endif ?>
       </main>
     </div>
   </div>
 
-  <?php require('partials/footer.php') ?>
+  <?php require('views/partials/footer.php') ?>
 </body>

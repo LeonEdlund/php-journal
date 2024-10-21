@@ -26,10 +26,10 @@ function abort($errorType)
 {
   switch ($errorType) {
     case "dbError":
-      require 'controllers/db-error.php';
+      require 'controllers/errors/db-error.php';
       die();
     case "notFound":
-      require 'controllers/404.php';
+      require 'controllers/errors/404.php';
       die();
     default:
       require 'controllers/404.php';

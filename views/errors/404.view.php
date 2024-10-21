@@ -1,4 +1,4 @@
-<?php require('partials/head.php') ?>
+<?php require('views/partials/head.php') ?>
 
 <body id="login-body">
   <main class="container no-page">

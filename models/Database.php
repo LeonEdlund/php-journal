@@ -5,7 +5,7 @@
  */
 class Database
 {
-  protected $connection; // The connection to the database
+  protected $connection;
 
   /**
    * Establishes connection to Mysql database
@@ -21,11 +21,10 @@ class Database
     $config = require 'config/config.php';
 
     try {
-      $dsn = "mysql:host={$config['host']};dbname={$config['dbName']}";
       $this->connection = new PDO(
-        $dsn,
-        $config['dbUsername'],
-        $config['dbPwd'],
+        $config['dsn'],
+        $config['username'],
+        $config['pwd'],
         [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
       );
     } catch (PDOException $e) {
