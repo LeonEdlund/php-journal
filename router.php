@@ -10,6 +10,7 @@ $routs = [
   'edit-post' => 'controllers/dashboard/edit-post.php',
   'login' => 'controllers/login.php',
   'logout' => 'utils/logout.php',
+  'rss' => 'rss.php'
 ];
 
 if (array_key_exists($shortUri, $routs)) {

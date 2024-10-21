@@ -43,6 +43,7 @@ class Authenticator extends Database
     $_SESSION['user'] = [
       'id' => $user['id'],
       'username' => $user['username'],
+      'email' => $user['email'],
       'fullName' => ($user['first_name'] . " " . $user['last_name'])
     ];
   }
