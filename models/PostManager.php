@@ -15,6 +15,8 @@ class PostManager extends Database
     parent::__construct();
   }
 
+  /* ----- METHODS FOR POSTING DATA TOO DB ----- */
+
   /**
    * Publishes a new post to table 'posts'.
    *
@@ -30,18 +32,6 @@ class PostManager extends Database
       ":title" => $title,
       ":content" => $postText
     ]);
-  }
-
-  /**
-   * Deletes a post by it's id.
-   *
-   * @param int $postId The id of the post.
-   * @return void
-   */
-  public function deletePostById($postId)
-  {
-    $query = "DELETE FROM posts WHERE id = :post_id";
-    $this->query($query, [":post_id" => $postId]);
   }
 
   /**
@@ -63,6 +53,18 @@ class PostManager extends Database
   }
 
   /**
+   * Deletes a post by it's id.
+   *
+   * @param int $postId The id of the post.
+   * @return void
+   */
+  public function deletePostById($postId)
+  {
+    $query = "DELETE FROM posts WHERE id = :post_id";
+    $this->query($query, [":post_id" => $postId]);
+  }
+
+  /**
    * Publishes a new comment to 'comments' table with the post id connected to it.
    *
    * @param string $post_id The ID of the post that the comment is left on.
@@ -78,6 +80,28 @@ class PostManager extends Database
       ":author" => $author,
       ":comment" => $comment_text
     ]);
+  }
+
+
+  /* ----- METHODS FOR GETTING DATA FROM DB ----- */
+
+  public function getNumberOfPosts()
+  {
+    $query = "SELECT count(*) AS total FROM posts";
+    $result = $this->query($query)->fetch();
+    return $result['total'];
+  }
+
+  public function getAllPosts($limit = "")
+  {
+    $query = "SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON users.id = posts .author_id ORDER BY posts.id DESC $limit";
+    return $this->query($query)->fetchAll();
+  }
+
+  public function getAllPostsFromUser($userId)
+  {
+    $query = "SELECT * FROM posts WHERE author_id = $userId ORDER BY posts.id DESC";
+    return $this->query($query)->fetchAll();
   }
 
   /**
@@ -102,24 +126,5 @@ class PostManager extends Database
   {
     $query = 'SELECT * FROM comments WHERE post_id=:post_id ORDER BY comment_id DESC';
     return $this->query($query, [":post_id" => $id])->fetchAll();
-  }
-
-  public function getNumberOfPosts()
-  {
-    $query = "SELECT count(*) AS total FROM posts";
-    $result = $this->query($query)->fetch();
-    return $result['total'];
-  }
-
-  public function getAllPosts($limit = "")
-  {
-    $query = "SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON users.id = posts .author_id ORDER BY posts.id DESC $limit";
-    return $this->query($query)->fetchAll();
-  }
-
-  public function getAllPostsFromUser($userId)
-  {
-    $query = "SELECT * FROM posts WHERE author_id = $userId ORDER BY posts.id DESC";
-    return $this->query($query)->fetchAll();
   }
 }
