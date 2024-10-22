@@ -89,7 +89,7 @@ class PostManager extends Database
   {
     $query = "SELECT count(*) AS total FROM posts";
     $result = $this->query($query)->fetch();
-    return $result['total'];
+    return $result->total;
   }
 
   public function getAllPosts($limit = "")
@@ -108,7 +108,7 @@ class PostManager extends Database
    * Gets a specific post based on the post id.
    *
    * @param int $id The id of the post.
-   * @return array Returns an associative array with the post and authors first and last name. 
+   * @return object Returns an associative array with the post and authors first and last name. 
    */
   public function getPostById($id)
   {

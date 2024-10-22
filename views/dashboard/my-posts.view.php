@@ -22,16 +22,16 @@
             <li>
               <article>
                 <header>
-                  <strong><?= htmlspecialchars($post['title']) ?></strong>
-                  <p class="float-right"><?= htmlspecialchars($post['created_at']) ?></p>
+                  <strong><?= htmlspecialchars($post->title) ?></strong>
+                  <p class="float-right"><?= htmlspecialchars($post->created_at) ?></p>
                 </header>
-                <?= nl2br(htmlspecialchars($post['post_text'])) ?>
+                <?= nl2br(htmlspecialchars($post->post_text)) ?>
                 <footer class="card-footer-text">
 
                   <div class="flex">
-                    <button onclick="window.location = 'index.php?route=edit-post&id=<?= $post['id'] ?>'">Edit</button>
+                    <button onclick="window.location = 'index.php?route=edit-post&id=<?= $post->id ?>'">Edit</button>
                     <form action="" method="post">
-                      <input class="hidden" type="number" name="post_id" value="<?= $post['id'] ?>">
+                      <input class="hidden" type="number" name="post_id" value="<?= $post->id ?>">
                       <input type="submit" value="Delete" id="post-btn">
                     </form>
 

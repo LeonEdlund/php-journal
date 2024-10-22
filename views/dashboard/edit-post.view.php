@@ -11,19 +11,21 @@
       <form action="" method="POST" autocomplete="off">
         <fieldset>
           <label for="title">Titel</label>
-          <input name="title" placeholder="Title" value="<?= $post['title'] ?? "" ?>" />
+          <input name="title" placeholder="Title" value="<?= $post->title ?? "" ?>" />
 
           <label for="post_text">Text</label>
-          <textarea name="post_text" placeholder="Write your post..." rows="10"><?= $post['post_text'] ?? "" ?></textarea>
+          <textarea name="post_text" placeholder="Write your post..." rows="10"><?= $post->post_text ?? "" ?></textarea>
         </fieldset>
         <input type="submit" value="Edit" id="post-btn" />
       </form>
 
-      <?php if (isset($postStatus)) : ?>
+      <?php if (!empty($errors)) : ?>
         <section>
-          <p><?= $postStatus ?></p>
+          <?php foreach ($errors as $error) : ?>
+            <p><?= $error ?></p>
+          <?php endforeach; ?>
         </section>
-      <?php endif; ?>
+      <?php endif ?>
     </main>
   </div>
 

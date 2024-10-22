@@ -7,13 +7,13 @@
     <main>
       <a href="index.php" id="go-back">Go back</a>
       <hgroup>
-        <h1><?= htmlspecialchars($post['title']) ?></h1>
-        <h3><?= htmlspecialchars($post['created_at']) ?></h3>
+        <h1><?= htmlspecialchars($post->title) ?></h1>
+        <h3><?= htmlspecialchars($post->created_at) ?></h3>
       </hgroup>
 
       <section>
-        <p><?= nl2br(htmlspecialchars($post['post_text'])) ?></p>
-        <cite>- <?= htmlspecialchars($post['first_name']) . " " . htmlspecialchars($post['last_name']) ?></cite>
+        <p><?= nl2br(htmlspecialchars($post->post_text)) ?></p>
+        <cite>- <?= htmlspecialchars($post->first_name) . " " . htmlspecialchars($post->last_name) ?></cite>
       </section>
       <hr>
     </main>
@@ -47,10 +47,10 @@
           <?php foreach ($comments as $comment) : ?>
             <li>
               <article>
-                <?= $comment['comment_text'] ?>
+                <?= $comment->comment_text ?>
                 <footer class="card-footer-text">
-                  <?= htmlspecialchars($comment['author']) ?>
-                  <span class="float-right"><?= htmlspecialchars($comment['created_at']) ?></span>
+                  <?= htmlspecialchars($comment->author) ?>
+                  <span class="float-right"><?= htmlspecialchars($comment->created_at) ?></span>
                 </footer>
               </article>
             </li>

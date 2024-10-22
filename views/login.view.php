@@ -5,15 +5,8 @@
 
     <div id="login-body">
       <main class="container">
-
         <h1>Log In</h1>
-        <?php if (isset($loginError)) : ?>
-          <p id='login-error'>
-            <?php
-            echo $loginError;
-            unset($loginError) ?>
-          </p>
-        <?php endif ?>
+        <?= isset($loginError) ? "<p id='login-error'>$loginError</p>" : "" ?>
         <form action="index.php?route=login" method="POST">
           <fieldset>
             <label for="username">Username</label>

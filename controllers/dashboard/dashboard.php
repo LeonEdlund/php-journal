@@ -5,28 +5,16 @@ if (!user_is_logged_in()) {
 }
 
 if (request_method_is_post()) {
+  $title = $_POST['title'];
+  $textBody = $_POST['post_text'];
+
   require_once 'utils/TextValidator.php';
   $validator = new TextValidator();
-  $errors = [];
+  $errors = $validator->validatePost($title, $textBody);
 
-  // Validate title
-  if ($validator->strIsEmpty($_POST['title'])) {
-    $errors[] = 'Fill in a title!';
-  } elseif ($validator->exceedsMaxLength($_POST['title'], 254)) {
-    $errors[] = 'Title is too long!';
-  }
-
-  // Validate body
-  if ($validator->strIsEmpty($_POST['post_text'])) {
-    $errors[] = 'Do not leave post empty!';
-  } elseif ($validator->exceedsMaxLength($_POST['post_text'], 65500)) {
-    $errors[] = 'Post is too long!';
-  }
-
-  // publish comment
   if (empty($errors)) {
     $postManager = new PostManager();
-    $postManager->publishPost($_POST['title'], $_POST['post_text']);
+    $postManager->publishPost($title, $textBody);
     $postStatus = "Post uploaded!";
   }
 }

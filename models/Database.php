@@ -25,7 +25,7 @@ class Database
         $config['dsn'],
         $config['username'],
         $config['pwd'],
-        [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+        [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]
       );
     } catch (PDOException $e) {
       abort('dbError');

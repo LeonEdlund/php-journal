@@ -2,6 +2,35 @@
 
 class TextValidator
 {
+
+  /**
+   * Checks if a title is under 255 characters and a text body is under 65500 characters.
+   * 
+   * @param string $title is the shorter string to be checked.
+   * @param string $body is the longer string to be checked.
+   * @return array returns an array of errors, if no errors found it returns an empty array.
+   */
+  public function validatePost($title, $body)
+  {
+    $errors = [];
+
+    // Validate title
+    if ($this->strIsEmpty($title)) {
+      $errors[] = 'Fill in a title!';
+    } elseif ($this->exceedsMaxLength($title, 254)) {
+      $errors[] = 'Title is too long!';
+    }
+
+    // Validate body
+    if ($this->strIsEmpty($body)) {
+      $errors[] = 'Do not leave post empty!';
+    } elseif ($this->exceedsMaxLength($body, 65500)) {
+      $errors[] = 'Post is too long!';
+    }
+
+    return $errors;
+  }
+
   /**
    * Checks if a string is empty not including whitespace.
    * 

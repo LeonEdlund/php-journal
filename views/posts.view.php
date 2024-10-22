@@ -17,12 +17,12 @@
           <?php else : ?>
             <?php foreach ($posts as $post) : ?>
               <li>
-                <a href="index.php?route=post&id=<?= htmlspecialchars($post['id']) ?>">
+                <a href="index.php?route=post&id=<?= htmlspecialchars($post->id) ?>">
                   <article>
-                    <?= htmlspecialchars($post['title']) ?>
+                    <?= htmlspecialchars($post->title) ?>
                     <footer class="card-footer-text">
-                      <?= htmlspecialchars($post['first_name']) . " " .  htmlspecialchars($post['last_name']) ?>
-                      <span class="float-right"><?= htmlspecialchars($post['created_at']) ?></span>
+                      <?= htmlspecialchars($post->first_name) . " " .  htmlspecialchars($post->last_name) ?>
+                      <span class="float-right"><?= htmlspecialchars($post->created_at) ?></span>
                     </footer>
                   </article>
                 </a>

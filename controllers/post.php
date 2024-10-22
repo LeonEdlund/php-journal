@@ -19,32 +19,21 @@ if (!$post) {
 
 // if a comment is posted
 if (request_method_is_post()) {
+  $name = $_POST['name'];
+  $commentBody = $_POST['comment'];
+
   require_once 'utils/TextValidator.php';
   $validator = new TextValidator();
-  $errors = [];
-
-  // Validate name
-  if ($validator->strIsEmpty($_POST['name'])) {
-    $errors[] = 'Fill in a name!';
-  } elseif ($validator->exceedsMaxLength($_POST['name'], 254)) {
-    $errors[] = 'Name is too long!';
-  }
-
-  // Validate comment
-  if ($validator->strIsEmpty($_POST['comment'])) {
-    $errors[] = 'Fill in a comment text!';
-  } elseif ($validator->exceedsMaxLength($_POST['comment'], 65500)) {
-    $errors[] = 'Comment is too long!';
-  }
+  $errors = $validator->validatePost($name, $commentBody);
 
   // publish comment
   if (empty($errors)) {
-    $postManager->publishComment($postId, $_POST['name'], $_POST['comment']);
+    $postManager->publishComment($postId, $name, $commentBody);
     header("Location: index.php?route=post&id=$postId");
     exit();
   }
 }
 
 /* SHOW PAGE */
-$title = htmlspecialchars($post['title']);
+$title = htmlspecialchars($post->title);
 require_once('views/post.view.php');
