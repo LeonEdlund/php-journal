@@ -94,7 +94,7 @@ class PostManager extends Database
 
   public function getAllPosts($limit = "")
   {
-    $query = "SELECT posts.*, users.first_name, users.last_name, users.email FROM posts INNER JOIN users ON users.id = posts .author_id ORDER BY posts.id DESC $limit";
+    $query = "SELECT posts.*, users.first_name, users.last_name, users.email FROM posts INNER JOIN users ON users.id = posts.author_id ORDER BY posts.id DESC $limit";
     return $this->query($query)->fetchAll();
   }
 

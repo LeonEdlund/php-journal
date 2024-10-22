@@ -3,7 +3,7 @@ header('Content-Type: application/xml; charset=utf-8');
 
 $postManager = new PostManager();
 $posts = $postManager->getAllPosts("LIMIT 10");
-
+//dd($posts[0]['post_text']);
 echo "<?xml version='1.0' encoding='UTF-8'?>"
 ?>
 
@@ -20,7 +20,9 @@ echo "<?xml version='1.0' encoding='UTF-8'?>"
         <author><?= htmlspecialchars($post['email']) ?></author>
         <pubDate><?= $date ?></pubDate>
         <link>https://melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post['id'] ?></link>
-        <description><?= nl2br(htmlspecialchars($post['post_text'])) ?></description>
+        <description>
+          <?= $post['post_text'] ?>
+        </description>
       </item>
     <?php endforeach ?>
   </channel>
