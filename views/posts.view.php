@@ -21,7 +21,7 @@
                   <article>
                     <?= htmlspecialchars($post->title) ?>
                     <footer class="card-footer-text">
-                      <?= htmlspecialchars($post->first_name) . " " .  htmlspecialchars($post->last_name) ?>
+                      <?= htmlspecialchars($post->author) ?>
                       <span class="float-right"><?= htmlspecialchars($post->created_at) ?></span>
                     </footer>
                   </article>

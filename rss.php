@@ -3,7 +3,7 @@ header('Content-Type: application/xml; charset=utf-8');
 
 $postManager = new PostManager();
 $posts = $postManager->getAllPosts("LIMIT 10");
-//dd($posts[0]['post_text']);
+
 echo "<?xml version='1.0' encoding='UTF-8'?>"
 ?>
 
@@ -14,15 +14,13 @@ echo "<?xml version='1.0' encoding='UTF-8'?>"
     <description>A rss feed of the posts from a journal webbsite.</description>
 
     <?php foreach ($posts as $post) : ?>
-      <?php $date = date(DATE_RSS, strtotime($post['created_at'])); ?>
+      <?php $date = date(DATE_RSS, strtotime($post->created_at)); ?>
       <item>
-        <title><?= htmlspecialchars($post['title']) ?></title>
-        <author><?= htmlspecialchars($post['email']) ?></author>
+        <title><?= htmlspecialchars($post->title) ?></title>
+        <author><?= htmlspecialchars($post->email) ?> (<?= htmlspecialchars($post->author) ?>)</author>
         <pubDate><?= $date ?></pubDate>
-        <link>https://melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post['id'] ?></link>
-        <description>
-          <?= $post['post_text'] ?>
-        </description>
+        <link>https://melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post->id ?></link>
+        <description><?= $post->post_text ?></description>
       </item>
     <?php endforeach ?>
   </channel>

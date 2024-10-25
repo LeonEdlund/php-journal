@@ -13,7 +13,7 @@
 
       <section>
         <p><?= nl2br(htmlspecialchars($post->post_text)) ?></p>
-        <cite>- <?= htmlspecialchars($post->first_name) . " " . htmlspecialchars($post->last_name) ?></cite>
+        <cite>- <?= htmlspecialchars($post->author) ?></cite>
       </section>
       <hr>
     </main>

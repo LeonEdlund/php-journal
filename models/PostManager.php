@@ -94,7 +94,7 @@ class PostManager extends Database
 
   public function getAllPosts($limit = "")
   {
-    $query = "SELECT posts.*, users.first_name, users.last_name, users.email FROM posts INNER JOIN users ON users.id = posts.author_id ORDER BY posts.id DESC $limit";
+    $query = "SELECT posts.*, users.id AS user_id, CONCAT(users.first_name, ' ', users.last_name) AS author, users.email FROM `posts`, users WHERE posts.author_id = users.id ORDER BY posts.id DESC $limit";
     return $this->query($query)->fetchAll();
   }
 
@@ -112,7 +112,7 @@ class PostManager extends Database
    */
   public function getPostById($id)
   {
-    $query = 'SELECT posts.*, users.first_name, users.last_name FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id=:post_id';
+    $query = "SELECT posts.*, CONCAT(users.first_name, ' ', users.last_name) AS author FROM posts, users WHERE posts.id=:post_id AND users.id = posts.author_id";
     return $this->query($query, [":post_id" => $id])->fetch();
   }
 
