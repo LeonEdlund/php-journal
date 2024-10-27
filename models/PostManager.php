@@ -1,14 +1,11 @@
 <?php
 
-/**
- * Post class handels getting and publishing posts from and to the database.
- * 
- * Extends the Database class to get the PDO connection and query method.
- */
 class PostManager extends Database
 {
   /**
    * Initializing the connection to the database with PDO.
+   * 
+   * @return void
    */
   public function __construct()
   {
@@ -22,7 +19,7 @@ class PostManager extends Database
    *
    * @param string $title The title of the post.
    * @param string $postText The content of the post.
-   * @return string A message indicating the result of the operation.
+   * @return void
    */
   public function publishPost($title, $postText)
   {
@@ -70,7 +67,7 @@ class PostManager extends Database
    * @param string $post_id The ID of the post that the comment is left on.
    * @param string $author The name of the author of the comment.
    * @param string $comment_text The content of the comment.
-   * @return bool Returns TRUE if the author and content is greater then 0. False if its not.
+   * @return void
    */
   public function publishComment($post_id, $author, $comment_text)
   {
@@ -85,6 +82,11 @@ class PostManager extends Database
 
   /* ----- METHODS FOR GETTING DATA FROM DB ----- */
 
+  /**
+   * Gets the total number of posts from Database.
+   *
+   * @return int The number of posts in the database
+   */
   public function getNumberOfPosts()
   {
     $query = "SELECT count(*) AS total FROM posts";
@@ -92,6 +94,12 @@ class PostManager extends Database
     return $result->total;
   }
 
+  /**
+   * Gets the total number of posts from Database.
+   *
+   * @param string $limit [optional] a optional string to limit the number of results. 
+   * @return int The number of posts in the database
+   */
   public function getAllPosts($limit = "")
   {
     $query = "SELECT posts.*, users.id AS user_id, CONCAT(users.first_name, ' ', users.last_name) AS author, users.email FROM `posts`, users WHERE posts.author_id = users.id ORDER BY posts.id DESC $limit";
