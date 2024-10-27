@@ -1,18 +1,13 @@
 <?php
 
-/**
- * 
- */
 class Database
 {
   protected $connection;
 
   /**
-   * Establishes connection to Mysql database
-   * 
    * Imports configuration data for database and establishes a connection using PDO  
-   * and sets the default fetch mode to associative array.
-   * If the connection fails aborts function is called and the database error page is shown.   
+   * and sets the default fetch mode to Object.
+   * If the connection fails abort is called and the database error page is shown.   
    * 
    * @return void
    */
@@ -32,6 +27,13 @@ class Database
     }
   }
 
+  /** 
+   * Prepares and executes a query to the database.
+   * 
+   * @param string $query The SQL query string to be executed.
+   * @param array $params (optional) An array of parameters to bind to the SQL query string.
+   * @return PDOStatement Returns a PDOStatement object.
+   */
   public function query($query, $params = [])
   {
     $stmt = $this->connection->prepare($query);
