@@ -4,7 +4,6 @@
  * Prints out information on the page and ends script
  * 
  * @param var $var can be any type.
- * 
  * @return void
  */
 function dd($var)
@@ -16,10 +15,9 @@ function dd($var)
 }
 
 /**
- * Handles different errors on the page.
+ * Handles and reroutes based on different errors.
  * 
  * @param string $errorType Specifies what type of error and redirects accordingly.
- * 
  * @return void
  */
 function abort($errorType)
@@ -37,6 +35,11 @@ function abort($errorType)
   }
 }
 
+/**
+ * Check if user is logged in by if 'user' key exists in $_SESSION. 
+ * 
+ * @return bool True if user is logged in, False if not
+ */
 function user_is_logged_in()
 {
   if (isset($_SESSION['user'])) {
@@ -46,6 +49,11 @@ function user_is_logged_in()
   }
 }
 
+/**
+ * Check if user is requesting the page with POST. 
+ * 
+ * @return bool True if page is requested with POST, false if not.
+ */
 function request_method_is_post()
 {
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
