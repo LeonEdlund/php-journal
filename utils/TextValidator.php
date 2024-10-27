@@ -31,7 +31,7 @@ class TextValidator
   }
 
   /**
-   * Checks if a string is empty not including whitespace.
+   * Checks if a string is empty.
    * 
    * @param string $string The text string that is checked
    * @return bool Returns true if string is empty, false if it contains characters. 
@@ -46,11 +46,11 @@ class TextValidator
   }
 
   /**
-   * Checks if a string is empty not including whitespace.
+   * Checks if a string is longer then the provided max length. 
    * 
    * @param string $string The text string that is checked.
    * @param int $max The max length of the string.
-   * @return bool Returns false if string is too long, true if it's under the max length. 
+   * @return bool Returns true if string is too long, false if it's under the max length. 
    */
   public function exceedsMaxLength($string, $max)
   {
