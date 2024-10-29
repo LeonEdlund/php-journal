@@ -16,7 +16,7 @@ class TextValidator
     // Validate title
     if ($this->strIsEmpty($title)) {
       $errors[] = 'Fill in a title!';
-    } elseif ($this->exceedsMaxLength($title, 254)) {
+    } elseif ($this->exceedsMaxLength($title, 100)) {
       $errors[] = 'Title is too long!';
     }
 

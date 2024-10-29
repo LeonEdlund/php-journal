@@ -95,10 +95,10 @@ class PostManager extends Database
   }
 
   /**
-   * Gets the total number of posts from Database.
+   * Gets all posts from Database.
    *
    * @param string $limit [optional] a optional string to limit the number of results. 
-   * @return int The number of posts in the database
+   * @return array all the results as objects in a array.
    */
   public function getAllPosts($limit = "")
   {
@@ -116,7 +116,7 @@ class PostManager extends Database
    * Gets a specific post based on the post id.
    *
    * @param int $id The id of the post.
-   * @return object Returns an associative array with the post and authors first and last name. 
+   * @return object Return a object with post and authors first and last name. 
    */
   public function getPostById($id)
   {
@@ -128,7 +128,7 @@ class PostManager extends Database
    * Gets a all comments relating to a post by its id.
    *
    * @param int $id The id of the post.
-   * @return array Returns an associative array with all the comments. 
+   * @return array Returns an array with all the comments as objects. 
    */
   public function getCommentsByPostId($id)
   {
