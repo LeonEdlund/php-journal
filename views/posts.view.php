@@ -19,7 +19,12 @@
               <li>
                 <a href="index.php?route=post&id=<?= htmlspecialchars($post->id) ?>">
                   <article>
-                    <?= htmlspecialchars($post->title) ?>
+                    <header>
+                      <?= htmlspecialchars($post->title) ?>
+                    </header>
+
+                    <?= nl2br(htmlspecialchars($post->post_text)) ?>
+
                     <footer class="card-footer-text">
                       <?= htmlspecialchars($post->author) ?>
                       <span class="float-right"><?= htmlspecialchars($post->created_at) ?></span>
