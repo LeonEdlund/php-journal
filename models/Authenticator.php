@@ -23,12 +23,10 @@ class Authenticator extends Database
    */
   public function authenticate($username, $pwd)
   {
-    $query = 'SELECT pwd FROM users WHERE username=:username';
-    $dbPwd = $this->query($query, [":username" => $username])->fetchColumn();
+    $query = 'SELECT * FROM users WHERE username=:username';
+    $user = $this->query($query, [":username" => $username])->fetch();
 
-    if ($dbPwd && password_verify($pwd, $dbPwd)) {
-      $secondQuery = 'SELECT * FROM users WHERE username=:username';
-      $user = $this->query($secondQuery, [":username" => $username])->fetch();
+    if ($user && password_verify($pwd, $user->pwd)) {
       $this->saveUserSession($user);
       return true;
     } else {
@@ -47,7 +45,6 @@ class Authenticator extends Database
     $_SESSION['user'] = [
       'id' => $user->id,
       'username' => $user->username,
-      'email' => $user->email,
       'fullName' => "$user->first_name $user->last_name"
     ];
   }
