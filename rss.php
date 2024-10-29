@@ -20,7 +20,7 @@ echo "<?xml version='1.0' encoding='UTF-8'?>"
         <author><?= htmlspecialchars($post->email) ?> (<?= htmlspecialchars($post->author) ?>)</author>
         <pubDate><?= $date ?></pubDate>
         <link>https://melab.lnu.se/~le223nd/webbteknik-4/journal/index.php?route=post&amp;id=<?= $post->id ?></link>
-        <description><?= $post->post_text ?></description>
+        <description><?= htmlspecialchars($post->post_text) ?></description>
       </item>
     <?php endforeach ?>
   </channel>
