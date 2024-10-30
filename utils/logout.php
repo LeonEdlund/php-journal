@@ -1,5 +1,5 @@
 <?php
 session_unset();
 session_destroy();
-header('location: index.php?route=posts');
+header('location: ?route=posts');
 die();

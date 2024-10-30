@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en">
+
 <?php require('views/partials/head.php') ?>
 
 <body id="login-body">

@@ -6,6 +6,7 @@ if (!user_is_logged_in()) {
 
 $postId = @$_GET['id'];
 
+// redirect if invalid postId
 if (!$postId || !is_numeric($postId)) {
   header('location: ?route=my-posts');
   exit();
@@ -15,6 +16,7 @@ if (!$postId || !is_numeric($postId)) {
 $postManager = new PostManager();
 $post = $postManager->getPostById($postId);
 
+// redirect if no post
 if (!$post) {
   header('location: ?route=my-posts');
   exit();

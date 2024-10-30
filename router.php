@@ -1,5 +1,5 @@
 <?php
-$shortUri = isset($_GET['route']) ? $_GET['route'] : '/';
+$shortUrl = isset($_GET['route']) ? $_GET['route'] : '/';
 
 $routs = [
   '/' => 'controllers/posts.php',
@@ -13,8 +13,8 @@ $routs = [
   'rss' => 'rss.php'
 ];
 
-if (array_key_exists($shortUri, $routs)) {
-  require $routs[$shortUri];
+if (array_key_exists($shortUrl, $routs)) {
+  require $routs[$shortUrl];
 } else {
   abort('notFound');
 }

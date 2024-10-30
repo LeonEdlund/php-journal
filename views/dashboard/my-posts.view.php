@@ -1,8 +1,12 @@
+<!doctype html>
+<html lang="en">
+
 <?php require('views/partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">
     <?php require('views/partials/admin-navbar.php') ?>
+
     <div class=" main-grid">
       <aside>
         <nav>
@@ -27,20 +31,17 @@
                 </header>
                 <?= nl2br(htmlspecialchars($post->post_text)) ?>
                 <footer class="card-footer-text">
-
                   <div class="flex">
-                    <button onclick="window.location = 'index.php?route=edit-post&id=<?= $post->id ?>'">Edit</button>
+                    <button onclick="window.location = '?route=edit-post&id=<?= $post->id ?>'">Edit</button>
                     <form action="" method="post">
                       <input class="hidden" type="number" name="post_id" value="<?= $post->id ?>">
                       <input type="submit" value="Delete" id="post-btn">
                     </form>
-
                   </div>
                 </footer>
               </article>
             </li>
           <?php endforeach; ?>
-
         </ul>
       </main>
     </div>
@@ -48,3 +49,5 @@
 
   <?php require('views/partials/footer.php') ?>
 </body>
+
+</html>

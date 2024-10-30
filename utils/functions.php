@@ -1,20 +1,6 @@
 <?php
 
 /**
- * Prints out information on the page and ends script
- * 
- * @param var $var can be any type.
- * @return void
- */
-function dd($var)
-{
-  echo '<pre>';
-  var_dump($var);
-  echo '<pre>';
-  die();
-}
-
-/**
  * Handles and reroutes based on different errors.
  * 
  * @param string $errorType Specifies what type of error and redirects accordingly.

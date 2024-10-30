@@ -106,6 +106,12 @@ class PostManager extends Database
     return $this->query($query)->fetchAll();
   }
 
+  /**
+   * Gets all posts from a specific user based on user id.
+   *
+   * @param string $userId The users unique id. 
+   * @return array all the results as objects in a array.
+   */
   public function getAllPostsFromUser($userId)
   {
     $query = "SELECT * FROM posts WHERE author_id = $userId ORDER BY posts.id DESC";

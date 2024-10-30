@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en">
+
 <?php require('partials/head.php') ?>
 
 <body class="container">
@@ -26,8 +29,10 @@
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name"
           value="<?= $_SESSION['user']['fullName'] ?? ($_POST['name'] ?? "") ?>">
+
         <label for="comment">Comment</label>
         <textarea type="" id="comment" name="comment" placeholder="Comment"><?= $_POST['comment'] ?? "" ?></textarea>
+
         <input type="submit" value="Post" id="post-btn" />
       </form>
 
@@ -55,9 +60,11 @@
               </article>
             </li>
           <?php endforeach; ?>
-        <?php endif; ?>
         </ul>
+      <?php endif; ?>
     </details>
   </div>
   <?php require('partials/footer.php') ?>
 </body>
+
+</html>

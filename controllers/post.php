@@ -17,7 +17,7 @@ if (!$post) {
   abort('notFound');
 }
 
-// if a comment is posted
+// upload a comment
 if (request_method_is_post()) {
   $name = $_POST['name'];
   $commentBody = $_POST['comment'];
@@ -33,6 +33,8 @@ if (request_method_is_post()) {
     exit();
   }
 }
+
+$postManager = null;
 
 /* SHOW PAGE */
 $title = htmlspecialchars($post->title);

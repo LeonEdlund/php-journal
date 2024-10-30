@@ -1,6 +1,4 @@
 <?php
-
-// connect to database
 $postManager = new PostManager();
 
 // set up pagination
@@ -8,7 +6,6 @@ $resultsPerPage = 10;
 $numberOfPosts = $postManager->getNumberOfPosts();
 $numberOfPages = ceil($numberOfPosts / $resultsPerPage);
 
-// get chosen page
 if (!isset($_GET['page'])) {
   $page = 1;
 } elseif ($_GET['page'] > $numberOfPages) {

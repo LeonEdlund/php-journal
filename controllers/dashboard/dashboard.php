@@ -19,6 +19,8 @@ if (request_method_is_post()) {
   }
 }
 
+$postManager = null;
+
 /* SHOW PAGE */
 $title = "Admin Dashboard";
 require_once('views/dashboard/dashboard.view.php');

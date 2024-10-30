@@ -1,8 +1,10 @@
+<!doctype html>
+<html lang="en">
+
 <?php require('partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">
-
     <div id="login-body">
       <main class="container">
         <h1>Log In</h1>
@@ -19,7 +21,7 @@
         </form>
       </main>
     </div>
-
+  </div>
 </body>
 
 </html>

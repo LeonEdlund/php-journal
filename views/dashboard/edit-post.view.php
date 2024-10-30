@@ -1,8 +1,12 @@
+<!doctype html>
+<html lang="en">
+
 <?php require('views/partials/head.php') ?>
 
 <body class="container">
   <div class="full-height">
     <?php require('views/partials/admin-navbar.php') ?>
+
     <main>
       <a href="?route=my-posts">Back</a>
       <hgroup>
@@ -31,3 +35,5 @@
 
   <?php require('views/partials/footer.php') ?>
 </body>
+
+</html>
